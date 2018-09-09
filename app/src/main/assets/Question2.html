@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+	<html>
+	<head>
+	<title>Question2</title>
+	<style>
+	body{
+		background-color: #a5a5a5;
+	    width: 90%;
+	    margin: 10%;	
+	}
+
+	h1{
+		color: white;
+		font-family: "Raleway", sans-serif;
+		font-size: 38px
+	}
+
+	#Context-Center{
+		padding-top: 5%;
+		padding-right: 5%;
+		border-color: #a5a5a5;
+		border-style: solid;
+		border-left: thick double #ff0000;
+		margin-left: 10%;
+	}
+
+	#Options_Body {
+		animation: fadein 2s;
+	    -moz-animation: fadein 2s; /* Firefox */
+	    -webkit-animation: fadein 2s; /* Safari and Chrome */
+	    -o-animation: fadein 2s; /* Opera */
+	}
+
+	.button {
+	    background-color: #4CAF50; /* Green */
+	    border: none;
+	    color: white;
+	    padding: 16px 32px;
+	    text-align: center;
+	    text-decoration: none;
+	    display: inline-block;
+	    font-size: 30px;
+	    margin: 4px 2px;
+	    -webkit-transition-duration: 0.4s; /* Safari */
+	    transition-duration: 0.4s;
+	    cursor: pointer;
+	    width: 40%;
+	   	min-height: 110px;
+	    margin: 2%;
+	}
+
+	.button1 {
+	    background-color: white; 
+	    color: black; 
+	    border: 3px solid #4CAF50;
+	}
+
+	.button1:hover {
+	    background-color: #4CAF50;
+	    color: white;
+	}
+
+	.button2 {
+	    background-color: white; 
+	    color: black; 
+	    border: 3px solid #008CBA;
+	}
+
+	.button2:hover {
+	    background-color: #008CBA;
+	    color: white;
+	}
+
+	.button3 {
+	    background-color: white; 
+	    color: black; 
+	    border: 3px solid #f44336;
+	}
+
+	.button3:hover {
+	    background-color: #f44336;
+	    color: white;
+	}
+
+	.button4 {
+	    background-color: white;
+	    color: black;
+	    border: 3px solid #f9ba0c;
+	}
+
+	.button4:hover {background-color: #f9ba0c;}
+
+	@keyframes fadein {
+	    from {
+	        opacity:0;
+	    }
+	    to {
+	        opacity:1;
+	    }
+	}
+	@-moz-keyframes fadein { /* Firefox */
+	    from {
+	        opacity:0;
+	    }
+	    to {
+	        opacity:1;
+	    }
+	}
+	@-webkit-keyframes fadein { /* Safari and Chrome */
+	    from {
+	        opacity:0;
+	    }
+	    to {
+	        opacity:1;
+	    }
+	}
+	@-o-keyframes fadein { /* Opera */
+	    from {
+	        opacity:0;
+	    }
+	    to {
+	        opacity: 1;
+	    }
+	}
+
+	</style>
+
+	<script>
+		function advanceToAnswers() {
+		    var x = document.getElementById("Questions_Body");
+		    var y = document.getElementById("Options_Body");
+		    if (x.style.display === "none") {
+		        x.style.display = "block";
+		        y.style.display = "none";
+		    } else {
+		        x.style.display = "none";
+		        y.style.display = "block";
+		    }
+		    pepperSayAnswers();
+		}
+
+		function setPepperValues(question, answer1, answer2, answer3, answer4) {
+	        Pepper.setValues(question, answer1, answer2, answer3, answer4);
+	    }
+
+	    function pepperSayQuestion() {
+	        Pepper.sayQuestion();
+	    }
+
+	    function pepperSayAnswers() {
+	        Pepper.sayAnswers();
+	    }
+
+	    function pepperNextQuestion(selectedAnswer) {
+	    	Pepper.nextQuestion(selectedAnswer);
+	    }
+	</script>
+
+	</head>
+
+	<body onload="setPepperValues('What do you think of the library staff here?', 'They are great!', 'They are okay...', 'I still can\'t find my books', 'Wait...People work here!?'); pepperSayQuestion();">
+		<div id="Questions_Body">
+			<div style="padding-top: 15%"></div>
+			<div id="Body">
+				<div id="Context-Center" style="float:left;">
+				<h1 style="padding-left: 2%; text-shadow: 3px 2px black;">What do you think of the library staff here?</h1>
+				</div>
+			</div>
+
+		</div>
+		<div id="Options_Body" style="display: none;">
+			<h1 style="padding-left: 2%; text-shadow: 3px 2px black;">What do you think of the library staff here?</h1>
+			<div id="TopRow">
+				<button class="button button1" onclick="pepperNextQuestion('They are great!')">"They are great!"</button>
+				<button class="button button2" onclick="pepperNextQuestion('They are okay...')">"They are okay..."</button>
+			</div>
+
+			<div id="bottomRow">
+				<button class="button button3" onclick="pepperNextQuestion('I still can\'t my books')">"I still can't find my books"</button>
+				<button class="button button4" onclick="pepperNextQuestion('Wait...People work here!?')">"Wait...People work here!?"</button>
+			</div>
+		</div>
+	<!-- <button onclick="advanceToAnswers()">ClickMe</button> -->
+	</body>
+	</html>

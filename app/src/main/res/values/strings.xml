@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Pepper Hackathon</string>
+    <string name="edit_message">Enter a message</string>
+    <string name="button_send">Just Send It</string>
+    <string name="button_do_cat">Do the cat!</string>
+    <string name="button_go_to_cat">Go to the cat!</string>
+    <string name="button_start">Play with me!</string>
+</resources>
